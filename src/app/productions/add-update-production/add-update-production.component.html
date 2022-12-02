@@ -1,0 +1,47 @@
+<div class="modal fade" id="addProductionModal" tabindex="-1" aria-labelledby="addProductionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addProductionModalLabel">Adicionar nova produção</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <form #addProductionForm="ngForm" (ngSubmit)="onAddProduction(addProductionForm)">   
+            <input type="text" class="input-style" name="production" id="production" ngModel
+            placeholder="Quantidade produzida (kg)*" required #production="ngModel">
+            <div>
+              <span class="help-block" style="margin: 3px;" *ngIf="!production.valid && production.touched">Por favor, insira uma produção válida!</span>
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn cancel-btn" data-bs-dismiss="modal" id="close-add-production-btn">Cancelar</button>
+            <button type="submit" class="btn confirm-btn">Salvar</button>
+          </div>
+        </form>
+    </div>
+      </div>
+    </div>
+  </div>
+
+<div class="modal fade" id="editProductionModal" tabindex="-1" aria-labelledby="editProductionModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editProductionModalLabel">Editar dados da área</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #editProductionForm="ngForm" (ngSubmit)="onUpdateProduction(editProductionForm)">   
+        <input type="text" class="input-style" name="production" id="production" ngModel
+        placeholder="Quantidade produzida (kg)*" required #production="ngModel">
+        <div>
+          <span class="help-block" style="margin: 3px;" *ngIf="!production.valid && production.touched">Por favor, insira uma produção válida!</span>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn cancel-btn" data-bs-dismiss="modal" id="close-edit-btn">Cancelar</button>
+        <button type="submit" class="btn confirm-btn">Salvar</button>
+      </div>
+    </form>
+  </div>
+    </div>
+  </div>
+</div>

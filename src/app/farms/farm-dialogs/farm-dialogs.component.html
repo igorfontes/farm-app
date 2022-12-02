@@ -1,0 +1,17 @@
+<div class="modal fade" id="deleteFarmModal" tabindex="-1" aria-labelledby="deleteFarmModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">      
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteFarmModalLabel">Apagar fazenda</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Isso irá apagar todos os talhões, produções e dados relacionados a essa fazenda. Tem certeza que quer concluir essa operação?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn cancel-btn" data-bs-dismiss="modal">Não</button>
+          <button type="button" class="btn confirm-btn" data-bs-dismiss="modal" (click)="deleteFarm(farmId)">Sim</button>
+        </div>
+    </div>
+  </div>
+</div>

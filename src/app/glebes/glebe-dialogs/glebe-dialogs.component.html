@@ -1,0 +1,17 @@
+<div class="modal fade" id="deleteGlebeModal" tabindex="-1" aria-labelledby="deleteGlebeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteGlebeModalLabel">Apagar área da fazenda</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Isso irá apagar todas as produções e dados relacionados a essa área. Tem certeza que quer concluir essa operação?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn cancel-btn" data-bs-dismiss="modal" id="close-delete-glebe-btn">Não</button>
+        <button type="button" class="btn confirm-btn" (click)="onDeleteGlebe(farmId, glebeId)">Sim</button>
+      </div>
+    </div>
+  </div>
+</div>

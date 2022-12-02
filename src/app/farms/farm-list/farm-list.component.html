@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="col-9">
+        <strong>Fazendas</strong>
+    </div>
+    <button type="button" class="btn confirm-btn" style="width: 20%" data-bs-toggle="modal" data-bs-target="#addFarmModal">
+        + Nova fazenda
+    </button>
+</nav>
+
+<hr>
+
+<ul class="list-group">
+    <div *ngFor="let farm of farms" class="container">
+      <li class="list-group-item">
+        <div class="col-xl-12">
+            <div class="row align-items-center d-flex">
+                <div class="col-1">
+                    <i class="fa fa-home"></i>
+                </div>
+                <div class="col-9 mb-0">
+                    <h5>Fazenda {{farm?.name}}</h5>
+                </div>
+                <div class="col-2 btn-group btn-sm" role="group">
+                
+                    <a class="btn tooltips" data-bs-toggle="modal" 
+                    data-bs-target="#editFarmModal" (click)="setFarmId(farm.id)">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+
+                    <a class="btn tooltips"
+                    data-bs-toggle="modal" data-bs-target="#deleteFarmModal" (click)="setFarmIdDeletion(farm.id)">
+                        <i class="fa fa-times"></i>
+                    </a>
+                    
+                    <a class="btn tooltips"
+                    (click)="loadFarmData(farm.id)" routerLink= "{{farm.id}}/glebes"><i class="fa fa-arrow-right"></i> </a>
+                
+                </div>
+            </div>
+        </div>
+      </li>
+    </div>
+</ul>
+
+<app-add-farm [farmIdEdit]="currentFarmIdEdit" (farmEvent)="getFarms()"></app-add-farm>
+<app-farm-dialogs [farmId]="currentFarmId" (farmDeletedEvent)="getFarms()"></app-farm-dialogs>

@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="margin: 20px 20px;">
+    <div class="col-1">
+        <a class="btn tooltips" data-placement="right" data-toggle="tooltip" routerLink="/farms/{{farmId}}/glebes"><i class="fa fa-arrow-left"></i> </a>
+    </div>
+    <div class="col-6 mb-0 header-title">
+        <strong> Área {{ glebe.name }} </strong>
+    </div>
+    <div class="col-4">
+        <h6>Produtividade</h6>
+        <h6>{{ glebe.productivity }} kg/ha</h6>
+    </div>
+    <div class="col-1 btn-group btn-sm" role="group">
+        
+        <a class="btn tooltips" data-placement="right"><i class="fa fa-pencil"></i> </a>
+    </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="col-9">
+        <strong>Produções</strong>
+    </div>
+    <button type="button" class="btn confirm-btn" style="width: 20%" data-bs-toggle="modal" data-bs-target="#addProductionModal">
+        + Nova produção
+    </button>
+</nav>
+
+<hr>
+
+<ul class="list-group">
+<div *ngFor="let production of glebe.productions" class="container">
+<li class="list-group-item">
+    <div class="col-xl-12">
+        <div class="row align-items-center d-flex">
+            <div class="col-1">
+                <i class="fas fa-warehouse"></i>
+            </div>
+            <div class="col-10 mb-0">
+                <h5>{{ production.production }} kg</h5>
+                <h6>Produzidos</h6>
+            </div>
+            <div class="col-1 btn-group btn-sm" role="group">
+                
+                <a class="btn tooltips" data-placement="right" data-toggle="tooltip" data-original-title="Edit"
+                data-bs-toggle="modal" data-bs-target="#editProductionModal" (click)="setProductionIdEdit(production.id)"><i class="fa fa-pencil"></i> </a>
+                
+                <a class="btn tooltips" data-placement="right" data-toggle="tooltip" data-original-title="Delete" 
+                data-bs-toggle="modal" data-bs-target="#deleteProductionModal" (click)="setProductionIdDeletion(production.id)"><i class="fa fa-times"></i></a>
+            
+            </div>
+        </div>
+    </div>
+</li>
+</div>
+</ul>
+
+<app-add-update-production [glebeId]="glebe.id" [productionId]="productionIdEdit" (productionEvent)="getProductionsFromGlebe(glebe.id)"></app-add-update-production>
+<app-production-dialogs [productionId]="productionIdDeletion" (productionDeletedEvent)="getProductionsFromGlebe(glebe.id)"></app-production-dialogs>
